@@ -1,0 +1,40 @@
+{% extends "blog/base.html" %}
+
+{% block content %}
+
+<div class="row">
+	<div class="col-sm-2 blog-sidebar">
+		<div class="sidebar-module">
+			<h4>Categories</h4>
+			<ol class="list-unstyled">
+				{% for category in categories %}
+					<li><a href="#">{{category}}</a></li>
+				{% endfor %}
+			</ol>
+		</div>
+
+
+	</div>
+
+	
+	<div class="col-sm-9 col-sm-offset-1 blog-main">
+	{% for record in latest_records %}
+		<div class="blog-post">
+			<h1 class="blog-post-title"><a href="{% url 'blog:record' record.id %}">{{record.title}}</a></h2>
+			<p class="blog-post-meta">{{record.thread.title}}   {{record.date_creation |date}}</p>
+			<pre class="content">{{record.content}}</pre>
+
+			{% for tag in record.tags.all%}
+				<a class="btn tag" href="{% url 'blog:tag' tag.name %}">{{tag.name}}</a>
+			{% endfor %}
+
+			<address>{{record.author}}  {{record.author_email}}</address>
+			<div class="btn btn-success btn-sm">{{record.likes}}</div>
+			<div class="btn btn-danger  btn-sm">{{record.dislikes}}</div>
+		</div>
+	{% endfor %}
+	</div>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,42 @@
+<!DOCTYPE>
+<html lang="en">
+<head>
+	{% load staticfiles %}
+	
+	<title>{% block title %}Blog{% endblock %}</title>
+
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'blog/style.css' %}">
+</head>
+
+<body>
+	
+    
+    <div class="blog-masthead">
+        <div class="container">
+            <nav class="blog-nav">
+                {% block menu_bar %}
+                    <a class="blog-nav-item" href="{% url 'blog:index' %}">Home</a>
+                    <a class="blog-nav-item"><a href="{% url 'blog:index' %}">Blog</a>
+                {% endblock %}
+            <nav>
+        </div>
+    </div>
+
+    <div class="container">
+
+        <div class="blog-header">
+            <h1 class="blog-title">The Blog</h1>
+            <p class="lead blog-description">Blog created with Django and Bootstrap</p>
+        </div>
+        
+        {% block content %}{% endblock %}
+    </div>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,15 @@
+li a{
+	color: green;
+}
+
+.container{
+	width: 970px;
+}
+
+.tag{
+	background: azure;
+}
+
+.content{
+	font-size: 18px;
+}
