@@ -17,7 +17,7 @@
             <nav class="blog-nav">
                 {% block menu_bar %}
                     <a class="blog-nav-item" href="{% url 'blog:index' %}">Home</a>
-                    <a class="blog-nav-item"><a href="{% url 'blog:index' %}">Blog</a>
+                    <a class="blog-nav-item" href="{% url 'blog:index' %}">Blog</a>
                 {% endblock %}
             <nav>
         </div>
@@ -36,7 +36,7 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-
+    <script src="{% static 'blog/script.js' %}" type="text/javascript"></script>
 </body>
 
 </html>

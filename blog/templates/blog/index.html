@@ -19,7 +19,8 @@
 	
 	<div class="col-sm-9 col-sm-offset-1 blog-main">
 	{% for record in latest_records %}
-		<div class="blog-post">
+		{% csrf_token %}
+		<div class="blog-post" >
 			<h1 class="blog-post-title"><a href="{% url 'blog:record' record.id %}">{{record.title}}</a></h2>
 			<p class="blog-post-meta">{{record.thread.title}}   {{record.date_creation |date}}</p>
 			<pre class="content">{{record.content}}</pre>
@@ -29,8 +30,8 @@
 			{% endfor %}
 
 			<address>{{record.author}}  {{record.author_email}}</address>
-			<div class="btn btn-success btn-sm">{{record.likes}}</div>
-			<div class="btn btn-danger  btn-sm">{{record.dislikes}}</div>
+			<div class="btn btn-success btn-sm like" href="{% url 'blog:like' %}" record-id="{{record.pk}}">{{record.likes}}</div>
+			<div class="btn btn-danger  btn-sm dislike" href="{% url 'blog:like' %}" record-id="{{record.pk}}">{{record.dislikes}}</div>
 		</div>
 	{% endfor %}
 	</div>
