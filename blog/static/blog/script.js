@@ -1,7 +1,7 @@
 var like = function(){
 	var button = $(this) 
 	is_like = $(this).hasClass('like')
-	
+
 	$.ajax({
 		type: "POST",
 		url: $(this).attr('href'),
@@ -21,8 +21,17 @@ var like = function(){
 } 
 
 
+var show_threads = function(){
+	$('.thread').hide();
+	$('.category').children().removeClass('active');
+	$(this).children('.category').addClass('active');
+	$(this).children('.thread').show();
+}
+
+
 var main = function(){
-	$(".like,.dislike").click(like);
+	$('.like,.dislike').click(like);
+	$('.category').click(show_threads);
 }
 
 $(document).ready(main);

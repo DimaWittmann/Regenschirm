@@ -66,3 +66,14 @@ class Record(models.Model):
 
 
 
+class Comment(models.Model):
+	text = models.TextField()
+	author = models.CharField(max_length=30)
+	author_email = models.EmailField(null=True)
+	date_creation = models.DateTimeField(auto_now_add=True)
+	record = models.ForeignKey(Record)
+	likes = models.IntegerField(default=0)
+	dislikes = models.IntegerField(default=0)
+
+	def __str__(self):
+		return self.text

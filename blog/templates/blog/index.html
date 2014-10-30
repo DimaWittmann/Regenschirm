@@ -8,7 +8,13 @@
 			<h4>Categories</h4>
 			<ol class="list-unstyled">
 				{% for category in categories %}
-					<li><a href="#">{{category}}</a></li>
+					<div class="category" ><button class="btn btn-info btn-default">{{category}}</button>
+						
+							{% for thread in category.thread_set.all %}
+								<a href="{% url 'blog:thread' thread.id%}" class="thread">{{thread.title}}</a>
+							{% endfor %}
+						
+					</div>
 				{% endfor %}
 			</ol>
 		</div>
@@ -18,21 +24,8 @@
 
 	
 	<div class="col-sm-9 col-sm-offset-1 blog-main">
-	{% for record in latest_records %}
-		{% csrf_token %}
-		<div class="blog-post" >
-			<h1 class="blog-post-title"><a href="{% url 'blog:record' record.id %}">{{record.title}}</a></h2>
-			<p class="blog-post-meta">{{record.thread.title}}   {{record.date_creation |date}}</p>
-			<pre class="content">{{record.content}}</pre>
-
-			{% for tag in record.tags.all%}
-				<a class="btn tag" href="{% url 'blog:tag' tag.name %}">{{tag.name}}</a>
-			{% endfor %}
-
-			<address>{{record.author}}  {{record.author_email}}</address>
-			<div class="btn btn-success btn-sm like" href="{% url 'blog:like' %}" record-id="{{record.pk}}">{{record.likes}}</div>
-			<div class="btn btn-danger  btn-sm dislike" href="{% url 'blog:like' %}" record-id="{{record.pk}}">{{record.dislikes}}</div>
-		</div>
+	{% for record in latest_records %}	
+		{% include "blog/blog_entry.html" %} 
 	{% endfor %}
 	</div>
 </div>

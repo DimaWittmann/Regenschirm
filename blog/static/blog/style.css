@@ -1,19 +1,61 @@
-li a{
-	color: green;
-}
 
 .container{
 	width: 970px;
+	background-color: #e7e9fd;
+	
 }
 
 .tag{
-	background: azure;
+	background: #afbfff;
 }
 
 .content{
 	font-size: 18px;
+	
 }
 
 .date{
+
+}
+button{
+	width: 100%;
+}
+
+.btn{
 	
+	text-align: left;
+}
+
+.thread{
+	display: none;
+}
+
+#id_text{
+	width: 100%;
+}
+
+.comment{
+	background-color: #d0d9ff;
+	width: 90%;
+	margin: 10px auto ;
+}
+
+.comment h3{
+	border-radius: 5px;
+	border: 1px double #2a36b1;
+	padding: 0 10px 0 10px;
+}
+.comment p{
+	border-radius: 5px;
+	border: 1px double #455ede;
+	padding: 0 10px 0 10px;	
+}
+
+input:not([type]), input[type="submit"]{
+	width: 100%;
+	margin: auto;
+}
+
+form{
+	margin-bottom: 10px;
 }

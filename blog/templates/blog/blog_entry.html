@@ -1,0 +1,14 @@
+{% csrf_token %}
+<div class="blog-post" >
+	<h1 class="blog-post-title"><a href="{% url 'blog:record' record.id%}">{{record.title}}</a></h2>
+	<p class="blog-post-meta">{{record.thread.all}}   {{record.date_creation |date}}</p> <address>{{record.author}}  {{record.author_email}}</address>
+	<div class="content">{{record.content|safe}}</div>
+
+	{% for tag in record.tags.all%}
+		<a class="btn tag" href="{% url 'blog:tag' tag.pk%}">{{tag.name}}</a>
+	{% endfor %}
+
+	
+	<div class="btn btn-success btn-sm like" href="{% url 'blog:like' %}" record-id="{{record.pk}}">{{record.likes}}</div>
+	<div class="btn btn-danger  btn-sm dislike" href="{% url 'blog:like' %}" record-id="{{record.pk}}">{{record.dislikes}}</div>
+</div>
