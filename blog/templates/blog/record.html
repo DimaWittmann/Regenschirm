@@ -17,17 +17,17 @@
 		{% csrf_token %}
 		{{ form.non_field_errors }}
 		<div class="col-sm-offset-2 form-group col-sm-4" >
-			{{ form.author.errors}}
+			<p class="text-danger">{{ form.author.errors}}</p>
 			<input id="form.author.id_for_label" type="text" name="form.author.name" maxlength="30" placeholder="{{ form.author.label }}" ></input>
 		</div>
 
 		<div class="col-sm-offset-2 form-group col-sm-4" >
-			{{ form.author_email.errors}}
+			<p class="text-danger">{{ form.author_email.errors}}</p>
 			<input id="form.author_email.id_for_label" type="text" name="form.author_email.name" maxlength="75" placeholder="{{ form.author_email.label }}" ></input>
 		</div>
 
 		<div class="form-group col-sm-12" >
-			{{ form.text.errors}}
+			<p class="text-danger">{{ form.text.errors}}</p>
 		
 			<textarea id="{{form.text.id_for_label}}" name="{{form.text.name}}" placeholder="{{ form.text.label }}" rows="5"></textarea>
 		</div>		
